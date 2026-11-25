@@ -11,7 +11,7 @@ Nhóm: NhomT2 · Lớp: L3B
 | 3 · So với nhân viên tự làm | Toàn bộ 5.865 đ/YC = 0,49x (simulated), riêng quoc_te 1,88x (lỗ); thu hẹp noi_dia+hang_nang + 40 tr/tháng cố định: 4.599 đ = 0,38x (45k YC/tháng) hoặc 5.784 đ = 0,48x (22,5k YC/tháng) (simulated) | Giả lập | Quản lý vận hành CSKH |
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | ... | ... | ... |
 | 5 · Bảng lỗi và cách khắc phục | 20 ca gắn nhãn độc lập, đồng thuận 18/20 (90%), đủ 5 loại Google PAIR; 5 ca khắc phục có event/ngưỡng đo được và 1 vai trò phụ trách | Xong, có bằng chứng | Kỹ sư AI |
-| 6 · Pilot plan | ... | ... | ... |
+| 6 · Pilot plan | Chia theo NV (20 vs 20, phân tầng 12 depot), phạm vi `noi_dia+hang_nang`; MDE 6 điểm (`n=859`, `DE=6,96`, `≥299` YC/NV); rollout 10%→25%→50%, 3 luật dừng đủ 4 vế (ngưỡng chi phí >8.000 đ simulated), chốt 2027-01-15 | Xong, có bằng chứng | Giám đốc vận hành LogiX-VN |
 | 7 · Rủi ro kinh tế | ... | ... | ... |
 
 **Đề xuất:** Go · Go có điều kiện · No-go (giữ một). Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
