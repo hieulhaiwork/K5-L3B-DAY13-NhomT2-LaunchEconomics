@@ -36,6 +36,26 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
 
+## HoangDucAn-2A202603800
+
+### Phần việc phụ trách
+
+- **Người viết code 1** (CP1–CP2) trong `src/lab13.py`, bàn giao quyền sửa file cho TV2 sau giờ giải lao.
+- **Người gắn nhãn 1** (CP3): gắn nhãn độc lập 20 ca lỗi theo 5 loại Google PAIR và đối chiếu đồng thuận với TV3.
+- Phụ trách đặc tả chỉ số, danh sách event và rủi ro kinh tế trong `report/team/chi_so.md`.
+
+### Đóng góp cụ thể
+
+- Code A1–A4 (3 phép thử `mo_hinh`, tách theo `loai`, chi phí cố định 40 triệu đ/tháng) và B1–B4 (9 kịch bản độ nhạy, đổi cặp + xếp hạng, chi phí cả hệ thống theo giới hạn chạy lại, kịch bản xem lại 100%) trong `src/lab13.py`.
+- Tham gia gắn nhãn độc lập 20 ca lỗi và thống nhất bộ nhãn, 5 ca đại diện với TV3 ở CP3.
+- Hoàn thiện `report/team/chi_so.md`: tính thử 3 chỉ số (Chính, Dùng, An toàn), đề xuất 2 chỉ số bổ sung, viết 10 event có `trace_id` kèm kiểm tra chéo, và điền 3 dòng rủi ro kinh tế.
+
+### Bằng chứng
+
+- `src/lab13.py`: 3 phép thử A1 đạt (`1,20`, `1,25`, `1,25`); CPS A2 = `4.472 đ` `[simulated]`; kiểm tra tuyến tính B1 đạt; B3 giới hạn 2 lần rẻ nhất cho cả hệ thống (`6.901.220 đ` `[simulated]`).
+- `report/team/chi_so.md` (commits `28057a5`, `2c67c75`): chỉ số trong đợt chạy thử `82,83%` / `27,12%` / `4,25%`, 10 event có `trace_id`, 3 dòng rủi ro kinh tế `[simulated]`.
+- Tham gia gắn nhãn 20 ca lỗi (commit `517c87f`).
+
 ## HoVaTen-MSSV
 
 ### Phần việc phụ trách
