@@ -10,7 +10,7 @@ Nhóm: NhomT2 · Lớp: L3B
 | 2 · Ba yếu tố nhạy nhất | (1) Số ca làm lại x2: +51,8% (6.787 đ); (2) Tỉ lệ xem lại x2: +40,7% (6.292 đ); (3) Lương NV +25%: +23,1% (5.506 đ) — giá token x2 chỉ +5,6%; giới hạn 2 lần chạy rẻ nhất cả hệ thống (6,90 tr đ) (simulated) | Giả lập | Kỹ sư AI |
 | 3 · So với nhân viên tự làm | Toàn bộ 5.865 đ/YC = 0,49x (simulated), riêng quoc_te 1,88x (lỗ); thu hẹp noi_dia+hang_nang + 40 tr/tháng cố định: 4.599 đ = 0,38x (45k YC/tháng) hoặc 5.784 đ = 0,48x (22,5k YC/tháng) (simulated) | Giả lập | Quản lý vận hành CSKH |
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | ... | ... | ... |
-| 5 · Bảng lỗi và cách khắc phục | ... | ... | ... |
+| 5 · Bảng lỗi và cách khắc phục | 20 ca gắn nhãn độc lập, đồng thuận 18/20 (90%), đủ 5 loại Google PAIR; 5 ca khắc phục có event/ngưỡng đo được và 1 vai trò phụ trách | Xong, có bằng chứng | Kỹ sư AI |
 | 6 · Pilot plan | ... | ... | ... |
 | 7 · Rủi ro kinh tế | ... | ... | ... |
 
