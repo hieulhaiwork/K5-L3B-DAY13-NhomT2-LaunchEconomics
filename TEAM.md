@@ -2,19 +2,18 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A hoặc L3B
-- Repo nhóm: `K5-L3A-DAY13-TenNhom-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: NhomT2
+- Lớp: L3B
+- Repo nhóm: `K5-L3B-DAY13-NhomT2-LaunchEconomics`
+- URL repo, nhánh nộp, commit chốt: https://github.com/hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics, branch `main`, commit `placeholder` 
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
-|   2 |        |      |       |        |         |
-|   3 |        |      |       |        |         |
-|   4 |        |      |       |        |         |
+|   1 | Lê Hiền Hiếu       | 2A202603940     |  hieulh.work@gmail.com     | hieulhaiwork        | Người giữ hồ sơ + Người gắn nhãn 2        |
+|   2 | Hoàng Đức An       | 2A202603800     | anduchoang2701@gmail.com      | katogithub2701       | Người viết code 1 + Người gắn nhãn 1        |
+|   3 | Lã Quốc Nghị       | 2A202603947     | quocnghidev@gmail.com      | quocnghidev       | Người kiểm số + Người viết code 2        |
 
 Bốn vai của lab:
 
