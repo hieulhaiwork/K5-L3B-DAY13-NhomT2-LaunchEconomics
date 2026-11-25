@@ -5,7 +5,7 @@
 - Tên nhóm: NhomT2
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-NhomT2-LaunchEconomics`
-- URL repo, nhánh nộp, commit chốt: https://github.com/hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics, branch `main`, commit `placeholder` 
+- URL repo, nhánh nộp, commit chốt: https://github.com/hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics, nhánh `main`, commit 
 
 ## Thành viên
 
@@ -78,16 +78,22 @@ Sao chép mục dưới đây cho từng thành viên.
 - `report/team/pilot_plan.yaml` (commit `53cdcd2`): đọc được bằng `yaml.safe_load`, không còn dấu `?`, 3 luật dừng đủ NẾU – TRONG – THÌ – KHÔNG THÌ.
 - Báo cáo cá nhân: `report/team/2A202603947_LaQuocNghi.md`.
 
-## HoVaTen-MSSV
+## LeHienHieu-2A202603940
 
 ### Phần việc phụ trách
 
--
+- **Người gắn nhãn 2 kiêm giữ hồ sơ** (CP1–CP5): quản trị `TEAM.md`, tổng hợp xuyên suốt `report/team/ho_so_launch_v0.md`.
+- Gắn nhãn độc lập 20 ca lỗi theo Google PAIR và hoàn thiện bảng đồng thuận, quy tắc phân biệt, bảng khắc phục 5 ca trong `report/team/bang_loi.md`.
+- Thực hiện chấm chéo hội đồng Gate 2a cho nhóm **CR7** (`report/team/phieu_cham.md`) và tổng hợp báo cáo nhóm (`report/team/group_report.md`).
 
 ### Đóng góp cụ thể
 
--
+- Khởi tạo thông tin nhóm, bảng thành viên (3 người kiêm nhiệm đủ 4 vai trò) trong `TEAM.md` và cập nhật đầy đủ 7 mục + đề xuất **Go có điều kiện** (kèm bất lợi `power = 0,64` và nhãn `simulated`) trong `report/team/ho_so_launch_v0.md` trước 17:00.
+- Gắn nhãn độc lập 20 ca lỗi đạt đồng thuận `18/20 = 90%`, viết quy tắc phân biệt Ca 8 & Ca 13 và xây dựng bảng khắc phục 5 ca đại diện đủ 5 loại Google PAIR trong `report/team/bang_loi.md`.
+- Hoàn thiện phiếu chấm hội đồng cho nhóm `CR7` (`30/30`, `Go có điều kiện`, khớp hồ sơ thực tế của CR7) trong `report/team/phieu_cham.md` và tổng hợp báo cáo nhóm `report/team/group_report.md`.
 
 ### Bằng chứng
 
--
+- `TEAM.md` & `report/team/ho_so_launch_v0.md` (commits `efb1fea`, `244bb21`, `b4cb475`, `1f3cfdd`).
+- `report/team/bang_loi.md` (commit `87345a9`): đồng thuận `18/20 = 90%`, bảng khắc phục 5 ca đủ 5 loại lỗi.
+- `report/team/phieu_cham.md` (commit `fff48ca`), `report/team/group_report.md` và báo cáo cá nhân `report/team/2A202603940_LeHienHieu.md`.
