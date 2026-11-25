@@ -56,6 +56,28 @@ Sao chép mục dưới đây cho từng thành viên.
 - `report/team/chi_so.md` (commits `28057a5`, `2c67c75`): chỉ số trong đợt chạy thử `82,83%` / `27,12%` / `4,25%`, 10 event có `trace_id`, 3 dòng rủi ro kinh tế `[simulated]`.
 - Tham gia gắn nhãn 20 ca lỗi (commit `517c87f`).
 
+## LaQuocNghi-2A202603947
+
+### Phần việc phụ trách
+
+- **Người kiểm số** (CP1–CP2): kiểm số độc lập kết quả code của TV1, điền A1–A4 và B1–B4 vào `report/team/bang_chi_phi.md`.
+- **Người viết code 2** (CP4): nhận bàn giao `src/lab13.py` sau giờ giải lao, viết phần cỡ mẫu D1.
+- Phụ trách kế hoạch pilot `report/team/pilot_plan.yaml`, và đối chiếu số giữa các file hồ sơ ở CP5.
+
+### Đóng góp cụ thể
+
+- Kiểm số A2 bằng `awk` đọc thẳng hai file CSV, độc lập với code của TV1; khớp 100%.
+- Điền đủ A1–A4, B1–B4 trong `bang_chi_phi.md`, gắn nhãn `simulated` cho mọi số từ cột `_simulated`; thêm so sánh công bằng với nhân viên tự làm (`5.865 đ/yêu cầu = 0,49x` `[simulated]`).
+- Viết `TODO CP4` trong `src/lab13.py`: năm câu D1, power khi tác động thật chỉ 5 điểm, ba tỉ lệ hiện tại để đặt luật dừng; sửa lỗi in tiếng Việt trên console Windows.
+- Viết `pilot_plan.yaml`: chia theo nhân viên 20 + 20, mức chênh 6 điểm kèm đánh đổi, 3 luật dừng đủ bốn vế, rollback và ngày quyết định.
+
+### Bằng chứng
+
+- `report/team/bang_chi_phi.md` (commits `53cdcd2`, `2cd6ab2`): CPS `4.472 đ` `[simulated]`, gấp `16,3x` hoá đơn; giới hạn 2 lần rẻ nhất cả hệ thống (`6.901.220 đ` `[simulated]`); xem lại 100% `0,98x`–`1,03x` `[simulated]`.
+- `src/lab13.py` (commit `5be467e`): D1 in `1.251` · `3.103` · `1.000` · `300` · `m ≥ 299`, `DE = 6,96`; power `0,64`; chạy được trên Windows không cần `PYTHONUTF8`.
+- `report/team/pilot_plan.yaml` (commit `53cdcd2`): đọc được bằng `yaml.safe_load`, không còn dấu `?`, 3 luật dừng đủ NẾU – TRONG – THÌ – KHÔNG THÌ.
+- Báo cáo cá nhân: `report/team/2A202603947_LaQuocNghi.md`.
+
 ## HoVaTen-MSSV
 
 ### Phần việc phụ trách
