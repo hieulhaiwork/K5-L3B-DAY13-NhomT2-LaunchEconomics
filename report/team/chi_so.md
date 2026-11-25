@@ -4,11 +4,11 @@
 
 | Loại | Chỉ số | Công thức | Tính thử trên 1.200 yêu cầu |
 | --- | --- | --- | --- |
-| Chính (kết quả) | % yêu cầu đóng trong 24 giờ và không mở lại trong 7 ngày | `dong_trong_24h` bằng 1 và `mo_lai_trong_7_ngay` bằng 0, chia tổng số yêu cầu | ... |
-| Dùng | Tỉ lệ bỏ qua gợi ý | `quyet_dinh_xem_lai` là `sua` hoặc `bo`, chia số yêu cầu được xem lại | ... |
-| An toàn | Tỉ lệ lỗi lọt đến khách | `mo_lai_trong_7_ngay` bằng 1, chia tổng số yêu cầu | ... |
-| Dùng | Nhóm tự đề xuất: ... | ... | Không cần tính |
-| An toàn | Nhóm tự đề xuất: ... | ... | Không cần tính |
+| Chính (kết quả) | % yêu cầu đóng trong 24 giờ và không mở lại trong 7 ngày | `dong_trong_24h` bằng 1 và `mo_lai_trong_7_ngay` bằng 0, chia tổng số yêu cầu | **82,83%** (994/1.200) — *chỉ số trong đợt chạy thử* |
+| Dùng | Tỉ lệ bỏ qua gợi ý | `quyet_dinh_xem_lai` là `sua` hoặc `bo`, chia số yêu cầu được xem lại | **27,12%** (48/177) |
+| An toàn | Tỉ lệ lỗi lọt đến khách | `mo_lai_trong_7_ngay` bằng 1, chia tổng số yêu cầu | **4,25%** (51/1.200) |
+| Dùng | Nhóm tự đề xuất: % yêu cầu nhóm can thiệp có mở gợi ý trợ lý | Số yêu cầu có `agent_suggestion_shown` chia cho tổng số yêu cầu thuộc nhóm can thiệp (`arm = treatment`) | Không cần tính |
+| An toàn | Nhóm tự đề xuất: % đơn hoàn sai tiền qua kiểm tra mẫu hằng tuần | Số ca có `so_tien_da_hoan != so_tien_dung` trong `audit_sample_checked` chia cho tổng số ca kiểm tra mẫu (100 ca/tuần) | Không cần tính |
 
 Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý đã nâng chỉ số": đợt chạy thử không có nhóm đối chứng.
 
@@ -34,8 +34,8 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 - **Chỉ số chính (% đóng trong 24h & không mở lại trong 7 ngày):** nối `refund_request_created` với `ticket_closed` (kiểm tra `closed_at - created_at <= 24h`) và `ticket_reopened` (không có event trong 7 ngày sau khi đóng) qua `trace_id`.
 - **Chỉ số dùng (Tỉ lệ bỏ qua gợi ý):** lấy từ `staff_review_decision` (`quyet_dinh` là `sua` hoặc `bo`) chia cho tổng số `staff_review_decision` (hoặc `agent_suggestion_shown`) có cùng `trace_id`.
 - **Chỉ số an toàn (Tỉ lệ lỗi lọt đến khách):** lấy số `ticket_reopened` trong 7 ngày chia cho tổng số `refund_request_created`.
-- **Chỉ số dùng (tự đề xuất — sẽ chốt ở CP4):** có thể đo bằng `agent_suggestion_shown` / `refund_request_created` (theo `arm = treatment`).
-- **Chỉ số an toàn (tự đề xuất — sẽ chốt ở CP4):** có thể đo bằng `audit_sample_checked` (`so_tien_da_hoan != so_tien_dung`) hoặc đối soát `refund_ledger_write` theo `trace_id`.
+- **Chỉ số dùng (tự đề xuất — % yêu cầu nhóm can thiệp có mở gợi ý trợ lý):** đo bằng `agent_suggestion_shown` / `refund_request_created` (theo `arm = treatment`).
+- **Chỉ số an toàn (tự đề xuất — % đơn hoàn sai tiền qua kiểm tra mẫu hằng tuần):** đo bằng `audit_sample_checked` (`so_tien_da_hoan != so_tien_dung`) hoặc đối soát `refund_ledger_write` theo `trace_id`.
 
 ## E2 · Rủi ro kinh tế
 
