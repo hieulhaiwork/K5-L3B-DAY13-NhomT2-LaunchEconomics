@@ -5,7 +5,7 @@
 - Tên nhóm: NhomT2
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-NhomT2-LaunchEconomics`
-- URL repo, nhánh nộp, commit chốt: https://github.com/hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics, nhánh `main`, commit 
+- URL repo, nhánh nộp, commit chốt: https://github.com/hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics, nhánh `main`, commit `04572f2`
 
 ## Thành viên
 
