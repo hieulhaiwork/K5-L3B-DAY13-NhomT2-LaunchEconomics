@@ -28,7 +28,8 @@
 
 pilot:
   owner: "Giám đốc vận hành LogiX-VN"
-  scope: "Chỉ loại noi_dia và hang_nang ở cả 12 depot (0,22× và 0,69× so với 12.000 đ, simulated); loại quoc_te (1,88×, thành công 27,3%) và doi_tac (0,85×, điều khoản riêng)"
+  scope: "Chỉ loại noi_dia và hang_nang ở cả 12 depot (0,22× và 0,69× so với 12.000 đ, simulated); loại quoc_te (1,88×, thành công 27,3%) và doi_tac (0,85×, điều khoản riêng); mỗi yêu cầu chạy tối đa 2 lần"
+  max_runs_per_request: 2         # B3: rẻ nhất cho cả hệ thống, 6.901.220 đ so với 7.037.585 đ khi cho 3 lần (simulated)
   assignment:
     unit: "staff"
     control_share: 0.5
@@ -50,7 +51,7 @@ pilot:
     predeclared: "Có: chỉ số chính, mde 0,06, ba luật dừng, decision_date chốt trong file này và gửi hội đồng trước ngày bắt đầu 2026-12-07"
   stop_rules:
     - "NẾU tỉ lệ mở lại trong 7 ngày của nhóm trợ lý cao hơn nhóm đối chứng từ 2 điểm trở lên hoặc vượt 6% (hiện tại 3,97%), hoặc có từ 1 ca hoàn tiền trùng TRONG 3 ngày liên tiếp THÌ Giám đốc vận hành tắt trợ lý trong 30 phút và mở điều tra lỗi KHÔNG THÌ không được chuyển sang bước rollout tiếp theo"
-    - "NẾU chi phí mỗi việc thành công trong phạm vi vượt 8.000 đ (hiện tại 3.414 đ, simulated) TRONG 2 tuần liên tiếp THÌ Trưởng sản phẩm thu hẹp về noi_dia và giới hạn tối đa 2 lần chạy KHÔNG THÌ không được mở thêm hang_nang hay tăng tỉ lệ rollout"
+    - "NẾU chi phí mỗi việc thành công trong phạm vi vượt 8.000 đ (hiện tại 3.414 đ, simulated) TRONG 2 tuần liên tiếp THÌ Trưởng sản phẩm thu hẹp phạm vi về noi_dia (0,22×, simulated) và rà 20 trace làm lại gần nhất KHÔNG THÌ không được mở thêm hang_nang hay tăng tỉ lệ rollout"
     - "NẾU tỉ lệ bỏ qua gợi ý (sua hoặc bo) vượt 40% (hiện tại 27,1%) TRONG 1 tuần THÌ Trưởng nhóm CSKH phỏng vấn 5 nhân viên trong 3 ngày và báo cáo nguyên nhân KHÔNG THÌ không được chuyển sang bước rollout tiếp theo"
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "Giám đốc vận hành bấm cờ tắt trợ lý, hiệu lực trong 30 phút; yêu cầu đang mở chuyển về luồng nhân viên tự làm (6 phút, 12.000 đ mỗi yêu cầu), khách không phải gửi lại"

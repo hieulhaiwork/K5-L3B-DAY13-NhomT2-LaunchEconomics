@@ -43,7 +43,7 @@
   - Tính lại các số A2 bằng `awk` trên hai file CSV, độc lập với code; khớp 100%.
   - Đối chiếu mọi số với bảng số tham khảo trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md` (sai số cho phép 2%).
   - Bấm tay các phép tính chính: 4.373.585 ÷ 978 = 4.472; (4.373.585 + 222 × 12.000) ÷ 1.200 = 5.865; DE = 1 + 74 × 0,02 = 2,48; 20 ÷ 0,02 = 1.000; thay m = 299 vào 20m ÷ (1 + (m − 1) × 0,02) được khoảng 859.
-  - Chạy `yaml.safe_load` và lệnh tìm dấu `?` cho `pilot_plan.yaml`; tìm từ "production" trong `report/team/`.
+  - Chạy `yaml.safe_load` và lệnh tìm dấu `?` cho `pilot_plan.yaml`; tìm từ cấm theo quy tắc 5 của lab trong `report/team/`.
 - Mọi lựa chọn AI đưa ra (đơn vị chia pilot, mức chênh 6 điểm, các ngưỡng luật dừng, ngày quyết định) đều được giải thích lý do và phương án bị loại trước khi đưa vào file.
 
 ## 6. Tự đánh giá
@@ -55,5 +55,4 @@
   - Giữ đúng quy tắc mỗi file một người sửa, pull trước khi push; không phát sinh conflict, không force-push.
 - **Chưa tốt và cách cải thiện:**
   - Dựa nhiều vào trợ lý AI để viết code D1 và soạn nội dung. Tôi đã tự kiểm lại từng số và hiểu lý do từng lựa chọn, nhưng lần sau sẽ tự viết phần tính cỡ mẫu trước rồi mới dùng AI để soát.
-  - Chưa thống nhất sớm tên vai trò phụ trách giữa `pilot_plan.yaml`, `chi_so.md` và `ho_so_launch_v0.md`; chỗ lệch về giới hạn 2 lần chạy giữa yaml và điều kiện 1 của hồ sơ chỉ phát hiện ở bước đối chiếu cuối. Lần sau nên chốt danh sách vai trò và các quyết định chung ngay từ đầu buổi.
   - Mất thời gian ở khâu cài đặt (pip timeout, lỗi mã hoá tiếng Việt trên Windows); lần sau sẽ cài môi trường và chạy thử trước buổi lab.
