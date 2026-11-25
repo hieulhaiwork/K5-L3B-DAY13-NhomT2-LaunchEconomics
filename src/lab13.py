@@ -4,7 +4,12 @@ Không cần khoá API. Điền các chỗ ghi VIẾT Ở ĐÂY (đánh dấu TO
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+import sys
 import pandas as pd
+
+# Console Windows mặc định không phải UTF-8: in tiếng Việt sẽ báo UnicodeEncodeError.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
 GIA_VAO = 26        # đồng cho 1.000 token đầu vào
@@ -220,6 +225,59 @@ if __name__ == '__main__':
     print(f'Voi 9.0 phut/ca lam lai:       tong = {tong_b4_9p:>10,.0f} d -> CPS = {cps_b4_9p:>6,.0f} d ({cps_b4_9p / BASELINE:.2f}x) [sim] | hoa von <= {hoa_von_9p:.1f} phut/lan xem')
     print(f'Voi {tb_phut_lam_lai:.1f} phut/ca (TB du lieu): tong = {tong_b4_tb:>10,.0f} d -> CPS = {cps_b4_tb:>6,.0f} d ({cps_b4_tb / BASELINE:.2f}x) [sim] | hoa von <= {hoa_von_tb:.1f} phut/lan xem')
 
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    # ---------- Nhiệm vụ D · Cỡ mẫu (CP4) ----------
+    from statistics import NormalDist
+    from statsmodels.stats.proportion import proportion_effectsize
+    from statsmodels.stats.power import NormalIndPower
+
+    P1, P2, ALPHA, POWER, ICC = 0.70, 0.75, 0.05, 0.80, 0.02
+    SO_NHAN_VIEN = 40
+
+    def co_mau(p1, p2, alpha=ALPHA, power=POWER):
+        """Cỡ mẫu mỗi nhóm khi so hai tỉ lệ (công thức trong docs/du_lieu_va_cong_thuc.md)."""
+        za, zb = NormalDist().inv_cdf(1 - alpha / 2), NormalDist().inv_cdf(power)
+        pb = (p1 + p2) / 2
+        return math.ceil((za * math.sqrt(2 * pb * (1 - pb))
+                          + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2)
+
+    def he_so_thiet_ke(m, icc=ICC):
+        return 1 + (m - 1) * icc
+
+    print('\n=== D1 · Cỡ mẫu (baseline 0,70; +5 điểm; alpha 0,05; power 0,8; ICC 0,02) ===')
+    n_a = co_mau(P1, P2)
+    print(f'a) Chia theo yêu cầu:             {n_a:,} yêu cầu mỗi nhóm')
+
+    de_b = he_so_thiet_ke(75)
+    n_b = math.ceil(n_a * de_b)
+    nv_b = math.ceil(n_b / 75)
+    print(f'b) Theo nhân viên, m = 75:         DE = {de_b:.2f} -> {n_b:,} mỗi nhóm = {nv_b} nhân viên mỗi nhóm, '
+          f'tổng {2 * nv_b} > {SO_NHAN_VIEN}: {"đủ" if 2 * nv_b <= SO_NHAN_VIEN else "KHÔNG đủ người"}')
+
+    tran_c = 20 / ICC
+    print(f'c) 20 nhân viên mỗi nhóm:          tối đa c/ICC = {tran_c:,.0f} {"<" if tran_c < n_a else ">="} {n_a:,}: '
+          f'{"KHÔNG đạt" if tran_c < n_a else "đạt"}')
+
+    tran_d = 6 / ICC
+    print(f'd) 6 depot mỗi nhóm:               tối đa c/ICC = {tran_d:,.0f} < {n_a:,}: KHÔNG đạt, chỉ 6 cụm')
+
+    n_e = co_mau(P1, P1 + 0.06)
+    # 20m / (1 + (m - 1) ICC) >= n_e  ->  m >= n_e (1 - ICC) / (20 - n_e ICC)
+    m_e = math.ceil(n_e * (1 - ICC) / (20 - n_e * ICC))
+    de_e = he_so_thiet_ke(m_e)
+    print(f'e) Mức chênh 6 điểm, 20 NV/nhóm:   n = {n_e:,} -> m >= {m_e} yêu cầu mỗi nhân viên, DE = {de_e:.2f}, '
+          f'n hiệu dụng = {20 * m_e / de_e:,.0f}')
+
+    # Con số bất lợi: thiết kế cho 6 điểm nhưng tác động thật chỉ 5 điểm
+    h5 = proportion_effectsize(P2, P1)
+    power_5 = NormalIndPower().power(effect_size=h5, nobs1=n_e, alpha=ALPHA, ratio=1.0)
+    print(f'Power nếu tác động thật chỉ +5 điểm với n hiệu dụng {n_e} mỗi nhóm: {power_5:.2f}')
+
+    # Số hiện tại để đặt ngưỡng luật dừng (đợt chạy thử, không có đối chứng)
+    print('\n=== D3 · Tỉ lệ hiện tại để đặt luật dừng ===')
+    mo_lai = reqs['mo_lai_trong_7_ngay'].astype(int)
+    print(f'mo_lai_trong_7_ngay toàn mẫu:           {mo_lai.mean() * 100:.2f}% ({mo_lai.sum()}/{len(reqs)})')
+    mo_lai_pv = pham_vi['mo_lai_trong_7_ngay'].astype(int)
+    print(f'mo_lai_trong_7_ngay noi_dia + hang_nang: {mo_lai_pv.mean() * 100:.2f}% ({mo_lai_pv.sum()}/{len(pham_vi)})')
+    duoc_xem = reqs[reqs['duoc_xem_lai'].astype(int) == 1]
+    bo_qua = duoc_xem['quyet_dinh_xem_lai'].isin(['sua', 'bo'])
+    print(f'Tỉ lệ bỏ qua gợi ý (sua hoặc bo):        {bo_qua.mean() * 100:.1f}% ({bo_qua.sum()}/{len(duoc_xem)})')
